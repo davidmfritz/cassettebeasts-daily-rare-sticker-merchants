@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://world/npc/HumanNPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/core/ConditionalLayer.gd" type="Script" id=2]
+[ext_resource path="res://data/items/pulp.tres" type="Resource" id=3]
+[ext_resource path="res://world/recurring_npcs/PassiveStickerMerchant.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/behaviors/generic_npc/MerchantNPCBehavior.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mods/bloodyscythe_daily_rare_sticker_merchants/world/behaviors/generic_npc/CustomMerchantNPCBehavior.gd" type="Script" id=6]
+
+[node name="CustomTownHallSpawn" type="Spatial"]
+
+[node name="ConditionalLayer_Market" type="Spatial" parent="."]
+script = ExtResource( 2 )
+require_flags = [ "encounter_aa_oldgante" ]
+
+[node name="OffenseMerchant" parent="ConditionalLayer_Market" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.636, 2, -11.4349 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_colors = {
+"body_color_1": 7,
+"body_color_2": 12,
+"eye_color": 16,
+"face_accessory_color": -1,
+"favorite_color": 16,
+"hair_accessory_color": 15,
+"hair_color": 16,
+"legs_color": 5,
+"shoe_color": 12,
+"skin_color": 21
+}
+sprite_part_names = {
+"arms": "jacket",
+"body": "jacket",
+"hair": "neat1",
+"head": "generic",
+"legs": "shorts1",
+"wings": "generic"
+}
+sprite_body = null
+character = null
+human_colors/body_color_1 = 7
+human_colors/body_color_2 = 12
+human_colors/eye_color = 16
+human_colors/favorite_color = 16
+human_colors/hair_accessory_color = 15
+human_colors/hair_color = 16
+human_colors/legs_color = 5
+human_colors/shoe_color = 12
+human_colors/skin_color = 21
+
+[node name="InteractionBehavior" parent="ConditionalLayer_Market/OffenseMerchant" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
+script = ExtResource( 6 )
+exchange_name = "Offense Sticker Merchant (Rare)"
+currency = ExtResource( 3 )
+stock_sticker_tags = [ "offense" ]
+random_sticker_stock_amount = 1
+additional_stock_stat_key = "merchant_stock_stickers"
+additional_stock_stat_multiplier = 0.5
+
+[node name="SupportMerchant" parent="ConditionalLayer_Market" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6757, 2, -13.6026 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_colors = {
+"body_color_1": 12,
+"body_color_2": -1,
+"eye_color": 16,
+"face_accessory_color": 7,
+"favorite_color": 16,
+"hair_accessory_color": 15,
+"hair_color": 2,
+"legs_color": 0,
+"shoe_color": 12,
+"skin_color": -1
+}
+sprite_part_names = {
+"arms": "vest1",
+"body": "vest1",
+"hair": "long1",
+"head": "makeup1",
+"legs": "shorts1",
+"wings": "generic"
+}
+sprite_body = null
+character = null
+human_colors/body_color_1 = 12
+human_colors/eye_color = 16
+human_colors/face_accessory_color = 7
+human_colors/favorite_color = 16
+human_colors/hair_accessory_color = 15
+human_colors/hair_color = 2
+human_colors/legs_color = 0
+human_colors/shoe_color = 12
+
+[node name="InteractionBehavior" parent="ConditionalLayer_Market/SupportMerchant" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
+script = ExtResource( 6 )
+exchange_name = "Support Sticker Merchant (Rare)"
+currency = ExtResource( 3 )
+stock_sticker_tags = [ "support" ]
+random_sticker_stock_amount = 1
+additional_stock_stat_key = "merchant_stock_stickers"
+additional_stock_stat_multiplier = 0.5
+
+[node name="ConditionalLayer_MerchantRescued" type="Spatial" parent="ConditionalLayer_Market"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3102, 2, -34.3912 )
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+require_flags = [ "merchant_rescued" ]
+
+[node name="PassiveStickerMerchant" parent="ConditionalLayer_Market/ConditionalLayer_MerchantRescued" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71202, 0, 22.6563 )
+sprite_body = null
+character = null
+
+[node name="InteractionBehavior" parent="ConditionalLayer_Market/ConditionalLayer_MerchantRescued/PassiveStickerMerchant" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
+script = ExtResource( 6 )
+exchange_name = "Passive Sticker Merchant (Rare)"
+currency = ExtResource( 3 )
+stock_sticker_tags = [ "passive" ]
+random_sticker_stock_amount = 1
+additional_stock_stat_key = "merchant_stock_stickers"
+additional_stock_stat_multiplier = 0.5
