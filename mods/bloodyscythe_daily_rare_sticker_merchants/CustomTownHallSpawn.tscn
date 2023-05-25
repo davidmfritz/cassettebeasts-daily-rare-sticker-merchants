@@ -58,7 +58,6 @@ currency = ExtResource( 3 )
 stock_sticker_tags = [ "offense" ]
 random_sticker_stock_amount = 1
 additional_stock_stat_key = "merchant_stock_stickers"
-additional_stock_stat_multiplier = 0.5
 
 [node name="SupportMerchant" parent="ConditionalLayer_Market" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6757, 2, -13.6026 )
@@ -104,7 +103,6 @@ currency = ExtResource( 3 )
 stock_sticker_tags = [ "support" ]
 random_sticker_stock_amount = 1
 additional_stock_stat_key = "merchant_stock_stickers"
-additional_stock_stat_multiplier = 0.5
 
 [node name="ConditionalLayer_MerchantRescued" type="Spatial" parent="ConditionalLayer_Market"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3102, 2, -34.3912 )
@@ -127,4 +125,3 @@ currency = ExtResource( 3 )
 stock_sticker_tags = [ "passive" ]
 random_sticker_stock_amount = 1
 additional_stock_stat_key = "merchant_stock_stickers"
-additional_stock_stat_multiplier = 0.5

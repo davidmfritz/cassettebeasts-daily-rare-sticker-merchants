@@ -14,3 +14,4 @@ save_file_format_tag_version = 0
 network_protocol_tag = "bloodyscythe_daily_rare_sticker_merchants"
 modified_files = [  ]
 modified_dirs = [  ]
+setting_slider_extra_sticker_upgrade_ratio = 0.5
