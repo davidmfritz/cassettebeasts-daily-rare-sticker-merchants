@@ -5,7 +5,7 @@ func _daily_slice(rand:Random, arr:Array, num:int)->Array:
 		return arr
 	
 	var modutils: ContentInfo = DLC.mods_by_id["bloodyscythe_daily_rare_sticker_merchants"]
-	var ratio = modutils.setting_slider_extra_sticker_upgrade_ratio
+	var ratio = modutils.setting_slider_additional_sticker_stock_ratio
 	if additional_stock_stat_key != "":
 		num += floor(SaveState.stats.get_stat("exchange_purchased").get_count(additional_stock_stat_key) * ratio)
 	

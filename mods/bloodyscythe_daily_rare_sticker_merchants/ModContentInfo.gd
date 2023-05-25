@@ -1,7 +1,7 @@
 extends ContentInfo
 
 var setting_toggle_enabled: bool = true
-export var setting_slider_extra_sticker_upgrade_ratio: float = 0.5
+export var setting_slider_additional_sticker_stock_ratio: float = 0.5
 
 const MODUTILS: Dictionary = {
 	"settings": [
@@ -11,9 +11,9 @@ const MODUTILS: Dictionary = {
 			"label": "Enabled",
 		},
 		{
-			"property": "setting_slider_extra_sticker_upgrade_ratio",
+			"property": "setting_slider_additional_sticker_stock_ratio",
 			"type": "slider",
-			"label": "Extra Sticker Upgrade Ratio",
+			"label": "Additional Sticker Stock Ratio",
 			"min_value": 0.5,
 			"max_value": 1.0,
 			"step": 0.1,
@@ -31,5 +31,4 @@ func _on_TownHall_ready(scene: Spatial) -> void:
 		return
 	
 	var mod_scene: Spatial = preload("CustomTownHallSpawn.tscn").instance()
-	mod_scene.set("setting_slider_extra_sticker_upgrade_ratio", setting_slider_extra_sticker_upgrade_ratio)
 	scene.add_child(mod_scene)
